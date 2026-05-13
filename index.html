@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TernakLele - Ikan Segar & Produk Kesehatan</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              // Palet Warna: Teal (Air/Kesehatan), Hijau (Kesehatan/Pertumbuhan), Navy (Profesional)
+              "brand-dark": "#0f172a", // Slate 900
+              "brand-primary": "#0d9488", // Teal 600
+              "brand-light": "#ccfbf1", // Teal 50
+              "brand-accent": "#16a34a", // Green 600
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .hero-pattern {
+        background-color: #0f172a;
+        background-image: radial-gradient(#1e293b 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans text-gray-800 antialiased bg-gray-50">
+    <nav
+      class="fixed w-full z-50 bg-white transition-all duration-300"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo Gambar -->
+          <div class="flex-shrink-0 flex items-center gap-2">
+            <!-- Ganti src="..." dengan path/URL logo Anda -->
+            <img
+              src="assets/img/TernakLele.png"
+              alt="Logo TernakLele"
+              class="h-10 w-auto rounded-md object-contain"
+            />
+            <span
+              class="font-bold text-2xl text-brand-dark tracking-tight hidden sm:block"
+              >Ternak<span class="text-brand-primary">Lele</span></span
+            >
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#tentang"
+              class="text-gray-600 hover:text-brand-primary font-medium transition-colors"
+              >Tentang</a
+            >
+            <a
+              href="#produk"
+              class="text-gray-600 hover:text-brand-primary font-medium transition-colors"
+              >Produk</a
+            >
+            <a
+              href="#kesehatan"
+              class="text-gray-600 hover:text-brand-primary font-medium transition-colors"
+              >Kesehatan</a
+            >
+            <a
+              href="#pemesanan"
+              class="bg-brand-primary hover:bg-teal-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >Pesan Sekarang</a
+            >
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-gray-600 hover:text-brand-primary focus:outline-none p-2"
+            >
+              <i class="ph ph-list text-3xl" id="menu-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full"
+      >
+        <div class="px-4 pt-2 pb-6 space-y-1">
+          <a
+            href="#tentang"
+            class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-brand-light hover:text-brand-primary rounded-md"
+            >Tentang</a
+          >
+          <a
+            href="#produk"
+            class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-brand-light hover:text-brand-primary rounded-md"
+            >Produk</a
+          >
+          <a
+            href="#kesehatan"
+            class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-brand-light hover:text-brand-primary rounded-md"
+            >Kesehatan</a
+          >
+          <a
+            href="#pemesanan"
+            class="block mt-4 text-center bg-brand-primary text-white px-3 py-3 rounded-md text-base font-medium hover:bg-teal-700"
+            >Pesan Sekarang</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-pattern text-white"
+    >
+      <!-- Hero Background Image (Bisa diganti) -->
+      <!-- Ganti src="..." dengan URL atau path gambar ikan lele Anda -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="assets/img/hero-background.jpg"
+          alt="Background Ikan Lele"
+          class="w-full h-full object-cover object-center opacity-30"
+        />
+        <!-- Overlay gradasi agar teks tetap terbaca dengan jelas -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-primary/80"
+        ></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-brand-light text-sm font-medium"
+            >
+              <i class="ph-fill ph-sparkle text-yellow-400"></i>
+              Kualitas Premium & Bernutrisi
+            </div>
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+            >
+              Ikan Lele Segar & <br />
+              <span class="text-brand-light">Solusi Kesehatan</span>
+            </h1>
+            <p
+              class="text-lg md:text-xl text-gray-300 max-w-lg leading-relaxed"
+            >
+              Kami menyediakan ikan lele konsumsi kualitas terbaik hasil
+              budidaya modern, dipadukan dengan produk kesehatan pilihan untuk
+              kebugaran Anda setiap hari.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+              <a
+                href="#pemesanan"
+                class="flex justify-center items-center gap-2 bg-brand-accent hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)] hover:shadow-[0_0_30px_rgba(22,163,74,0.6)]"
+              >
+                Mulai Belanja <i class="ph-bold ph-arrow-right"></i>
+              </a>
+              <a
+                href="#member"
+                class="flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full font-semibold text-lg transition-all backdrop-blur-sm"
+              >
+                Daftar Member <i class="ph-bold ph-user-plus"></i>
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div
+              class="grid grid-cols-3 gap-6 pt-8 border-t border-white/10 mt-12"
+            >
+              <div>
+                <div class="text-3xl font-bold text-white mb-1">100%</div>
+                <div class="text-sm text-gray-400">Organik</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-white mb-1">24/7</div>
+                <div class="text-sm text-gray-400">Layanan Order</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-white mb-1">500+</div>
+                <div class="text-sm text-gray-400">Member Aktif</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Composition -->
+          <div class="relative hidden lg:block animate-float">
+            <div
+              class="absolute inset-0 bg-brand-primary rounded-full filter blur-[100px] opacity-30"
+            ></div>
+            <!-- Placeholder images using shapes to represent fish and health -->
+            <div class="relative w-full aspect-square max-w-md mx-auto">
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-brand-primary to-brand-accent rounded-[3rem] rotate-6 opacity-80 shadow-2xl"
+              ></div>
+              <div
+                class="absolute inset-0 bg-white rounded-[3rem] -rotate-3 overflow-hidden shadow-xl p-8 flex flex-col justify-center items-center text-center"
+              >
+                <i class="ph-fill ph-drop text-6xl text-brand-primary mb-4"></i>
+                <h3 class="text-2xl font-bold text-brand-dark mb-2">
+                  Budidaya Air Bersih
+                </h3>
+                <p class="text-gray-500">
+                  Ikan sehat berawal dari lingkungan yang sehat. Kami memastikan
+                  sirkulasi air optimal.
+                </p>
+
+                <div class="mt-8 flex gap-4">
+                  <div
+                    class="w-16 h-16 rounded-full bg-brand-light flex items-center justify-center"
+                  >
+                    <i
+                      class="ph-fill ph-fish-simple text-3xl text-brand-primary"
+                    ></i>
+                  </div>
+                  <div
+                    class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center"
+                  >
+                    <i class="ph-fill ph-leaf text-3xl text-brand-accent"></i>
+                  </div>
+                </div>
+              </div>
+              <!-- Floating Badge -->
+              <div
+                class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-gray-100"
+              >
+                <div class="bg-green-100 p-3 rounded-xl text-brand-accent">
+                  <i class="ph-fill ph-shield-check text-2xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-gray-800">Terjamin Sehat</p>
+                  <p class="text-xs text-gray-500">Bebas bahan kimia</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Bottom Divider -->
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 120"
+          class="w-full h-auto text-gray-50 fill-current"
+        >
+          <path
+            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Features/About Section -->
+    <section id="tentang" class="py-24 bg-gray-50 relative overflow-hidden">
+      <!-- Background Kotak-kotak Moderen (Grid Pattern) -->
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <span
+            class="inline-block py-1.5 px-4 rounded-full bg-white text-brand-primary font-bold tracking-widest text-xs uppercase mb-4 border border-brand-primary/20 shadow-sm relative"
+          >
+            Mengapa Memilih Kami?
+          </span>
+          <h2
+            class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight relative"
+          >
+            Sinergi Nutrisi & <span class="text-brand-primary">Kesehatan</span>
+          </h2>
+          <p class="text-gray-500 text-lg md:text-xl leading-relaxed relative">
+            Kami tidak hanya menjual ikan, tetapi menawarkan gaya hidup sehat
+            melalui protein berkualitas dan suplemen pendukung.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative z-10"
+        >
+          <!-- Feature 1 -->
+          <div
+            class="group relative bg-white p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.15)]"
+          >
+            <div class="relative w-16 h-16 mb-8">
+              <!-- Dekorasi Geometris di belakang ikon -->
+              <div
+                class="absolute inset-0 bg-brand-light rounded-full scale-[1.35] -translate-x-2 translate-y-2 transition-transform duration-500 group-hover:scale-150 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-12"
+              ></div>
+              <!-- Kotak Ikon Utama -->
+              <div
+                class="absolute inset-0 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-brand-light transition-transform duration-300 group-hover:scale-110"
+              >
+                <i class="ph-fill ph-fish text-3xl text-brand-primary"></i>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-brand-primary transition-colors"
+            >
+              Lele Berkualitas
+            </h3>
+            <p class="text-gray-500 leading-relaxed">
+              Dibudidayakan di kolam bioflok modern, menghasilkan daging padat,
+              tidak berbau lumpur, dan tinggi omega-3.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="group relative bg-white p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(22,163,74,0.15)]"
+          >
+            <div class="relative w-16 h-16 mb-8">
+              <!-- Dekorasi Geometris di belakang ikon -->
+              <div
+                class="absolute inset-0 bg-green-100 rounded-3xl scale-[1.3] rotate-12 translate-x-2 -translate-y-1 transition-transform duration-500 group-hover:scale-150 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0"
+              ></div>
+              <!-- Kotak Ikon Utama -->
+              <div
+                class="absolute inset-0 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-green-100 transition-transform duration-300 group-hover:scale-110"
+              >
+                <i class="ph-fill ph-first-aid text-3xl text-brand-accent"></i>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-brand-accent transition-colors"
+            >
+              Produk Pilihan
+            </h3>
+            <p class="text-gray-500 leading-relaxed">
+              Penyediaan suplemen herbal dan vitamin pendukung imunitas tubuh
+              yang sudah teruji dan BPOM.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="group relative bg-white p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.15)]"
+          >
+            <div class="relative w-16 h-16 mb-8">
+              <!-- Dekorasi Geometris di belakang ikon -->
+              <div
+                class="absolute inset-0 bg-blue-100 rounded-[2rem] rounded-tl-sm scale-[1.3] -translate-x-1 translate-y-3 transition-transform duration-500 group-hover:scale-150 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rounded-2xl"
+              ></div>
+              <!-- Kotak Ikon Utama -->
+              <div
+                class="absolute inset-0 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-blue-100 transition-transform duration-300 group-hover:scale-110"
+              >
+                <i class="ph-fill ph-truck text-3xl text-blue-600"></i>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors"
+            >
+              Pengiriman Cepat
+            </h3>
+            <p class="text-gray-500 leading-relaxed">
+              Layanan pengiriman langsung ke rumah Anda dengan standar
+              pengemasan menjaga kesegaran optimal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kategori: Olahan Lele -->
+    <section id="produk-olahan" class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-16"
+        >
+          <div class="max-w-2xl">
+            <span
+              class="text-orange-600 font-bold tracking-wider text-sm uppercase mb-2 block"
+              >Katalog Olahan</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight"
+            >
+              Lezat, Praktis & Bergizi
+            </h2>
+          </div>
+          <p
+            class="text-gray-500 max-w-md md:text-right mt-4 md:mt-0 leading-relaxed"
+          >
+            Produk olahan lele berstandar kualitas tinggi, diproses secara
+            higienis untuk menyajikan hidangan lezat.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16"
+        >
+          <!-- Product Item 1 -->
+          <div class="group relative flex flex-col">
+            <!-- Image Area -->
+            <div class="relative w-full aspect-[4/3] mb-6 z-10">
+              <!-- Dekorasi Seperempat Lingkaran (Kanan Bawah) -->
+              <div
+                class="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-orange-100 rounded-tl-full z-0 transition-transform duration-500 group-hover:scale-105"
+              ></div>
+
+              <!-- Ganti src="..." dengan URL/Path FOTO ASLI Anda -->
+              <img
+                src="assets/img/katalog-lele/Lele-Bumbu-Kuning.png"
+                alt="Lele Bumbu Kuning"
+                class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-gray-100 transition-transform duration-300 group-hover:-translate-y-2"
+              />
+
+              <div class="absolute top-4 left-4 z-20">
+                <span
+                  class="bg-white/90 backdrop-blur-sm text-orange-600 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
+                  >Siap Goreng</span
+                >
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="relative z-10">
+              <h4
+                class="font-bold text-gray-900 text-xl mb-2 group-hover:text-orange-600 transition-colors"
+              >
+                Lele Bumbu Kuning
+              </h4>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                Isi 5 ekor per kemasan. Diramu dengan rempah kuning nusantara
+                pilihan.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xl text-gray-900"
+                  >Rp 35.000</span
+                >
+                <button
+                  onclick="pilihProduk('Lele Bumbu Kuning - 1 Pack')"
+                  class="text-orange-600 bg-orange-50 hover:bg-orange-600 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  Pesan
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Item 2 -->
+          <div class="group relative flex flex-col">
+            <div class="relative w-full aspect-[4/3] mb-6 z-10">
+              <!-- Dekorasi Setengah Lingkaran (Kiri Bawah) -->
+              <div
+                class="absolute -bottom-6 -left-6 w-3/4 h-3/4 bg-amber-100 rounded-tr-full z-0 transition-transform duration-500 group-hover:scale-105"
+              ></div>
+
+              <!-- Ganti src="..." dengan URL/Path FOTO ASLI Anda -->
+              <img
+                src="assets/img/katalog-lele/abon.png"
+                alt="Abon Lele"
+                class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-gray-100 transition-transform duration-300 group-hover:-translate-y-2"
+              />
+
+              <div class="absolute top-4 left-4 z-20">
+                <span
+                  class="bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
+                  >Best Seller</span
+                >
+              </div>
+            </div>
+            <div class="relative z-10">
+              <h4
+                class="font-bold text-gray-900 text-xl mb-2 group-hover:text-amber-600 transition-colors"
+              >
+                Abon Lele Premium
+              </h4>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                Kemasan 200gr. Tekstur lembut dan gurih alami tanpa bahan
+                pengawet buatan.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xl text-gray-900"
+                  >Rp 45.000</span
+                >
+                <button
+                  onclick="pilihProduk('Abon Lele Premium - 200gr')"
+                  class="text-amber-600 bg-amber-50 hover:bg-amber-500 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  Pesan
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Item 3 -->
+          <div class="group relative flex flex-col">
+            <div class="relative w-full aspect-[4/3] mb-6 z-10">
+              <!-- Dekorasi Lingkaran Penuh (Bergeser) -->
+              <div
+                class="absolute -bottom-4 -right-4 w-2/3 h-2/3 bg-red-100 rounded-full z-0 transition-transform duration-500 group-hover:scale-105"
+              ></div>
+
+              <!-- Ganti src="..." dengan URL/Path FOTO ASLI Anda -->
+              <img
+                src="assets/img/katalog-lele/Nugget-Lele-Sehat.png"
+                alt="Nugget Lele"
+                class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-gray-100 transition-transform duration-300 group-hover:-translate-y-2"
+              />
+
+              <div class="absolute top-4 left-4 z-20">
+                <span
+                  class="bg-white/90 backdrop-blur-sm text-red-600 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
+                  >Kids Friendly</span
+                >
+              </div>
+            </div>
+            <div class="relative z-10">
+              <h4
+                class="font-bold text-gray-900 text-xl mb-2 group-hover:text-red-600 transition-colors"
+              >
+                Nugget Lele Sehat
+              </h4>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                Kemasan 250gr. Alternatif protein sehat yang sangat disukai
+                anak-anak. Kaya Omega-3.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xl text-gray-900"
+                  >Rp 30.000</span
+                >
+                <button
+                  onclick="pilihProduk('Nugget Lele Sehat - 250gr')"
+                  class="text-red-600 bg-red-50 hover:bg-red-500 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  Pesan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kategori: Produk Mentah -->
+    <section
+      id="produk-mentah"
+      class="py-24 bg-gray-50 relative border-y border-gray-200/60"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-16"
+        >
+          <div class="max-w-2xl">
+            <span
+              class="text-brand-primary font-bold tracking-wider text-sm uppercase mb-2 block"
+              >Hasil Budidaya</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight"
+            >
+              Lele Segar Berkualitas
+            </h2>
+          </div>
+          <p
+            class="text-gray-500 max-w-md md:text-right mt-4 md:mt-0 leading-relaxed"
+          >
+            Dipanen langsung dari kolam dengan sistem sirkulasi modern,
+            memastikan daging ikan padat dan higienis.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16"
+        >
+          <!-- Product Item 1 -->
+          <div class="group relative flex flex-col">
+            <div class="relative w-full aspect-[4/3] mb-6 z-10">
+              <!-- Dekorasi Kotak Melengkung (Bawah Kanan) -->
+              <div
+                class="absolute -bottom-5 -right-5 w-4/5 h-4/5 bg-brand-light rounded-3xl z-0 transition-transform duration-500 group-hover:rotate-3"
+              ></div>
+
+              <!-- Ganti src="..." dengan URL/Path FOTO ASLI Anda -->
+              <img
+                src="assets/img/hasil-budidaya/img1.png"
+                alt="Lele Konsumsi"
+                class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-gray-100 transition-transform duration-300 group-hover:-translate-y-2"
+              />
+
+              <div class="absolute top-4 left-4 z-20">
+                <span
+                  class="bg-brand-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
+                  >Grade A</span
+                >
+              </div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-1 mb-2">
+                <i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+                <i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+                <i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+                <i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+                <i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+              </div>
+              <h4
+                class="font-bold text-gray-900 text-xl mb-2 group-hover:text-brand-primary transition-colors"
+              >
+                Lele Konsumsi Segar
+              </h4>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                Spesifikasi 6-8 ekor per kilogram. Kondisi sudah dibersihkan,
+                siap diolah restoran atau konsumsi rumahan.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex flex-col">
+                  <span
+                    class="text-[10px] text-gray-400 font-bold uppercase tracking-wider"
+                    >Per Kg</span
+                  >
+                  <span class="font-extrabold text-xl text-gray-900"
+                    >Rp 28.000</span
+                  >
+                </div>
+                <button
+                  onclick="pilihProduk('Lele Konsumsi Segar - 1 Kg')"
+                  class="text-brand-primary bg-brand-light hover:bg-brand-primary hover:text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  Pesan
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Item 2 -->
+          <div class="group relative flex flex-col">
+            <div class="relative w-full aspect-[4/3] mb-6 z-10">
+              <!-- Dekorasi Seperempat Lingkaran (Kiri Atas) ditarik ke bawah -->
+              <div
+                class="absolute -bottom-5 -left-5 w-3/4 h-3/4 bg-blue-100 rounded-bl-[4rem] z-0 transition-transform duration-500 group-hover:-translate-x-2"
+              ></div>
+
+              <!-- Ganti src="..." dengan URL/Path FOTO ASLI Anda -->
+              <img
+                src="assets/img/hasil-budidaya/img2.png"
+                alt="Lele Fillet"
+                class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-gray-100 transition-transform duration-300 group-hover:-translate-y-2"
+              />
+
+              <div class="absolute top-4 left-4 z-20">
+                <span
+                  class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
+                  >Premium Cut</span
+                >
+              </div>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-1 mb-2">
+                <span
+                  class="bg-blue-50 text-blue-600 px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase"
+                  >Tinggi Protein</span
+                >
+              </div>
+              <h4
+                class="font-bold text-gray-900 text-xl mb-2 group-hover:text-blue-600 transition-colors"
+              >
+                Lele Fillet Boneless
+              </h4>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                Kemasan 500gr. Potongan daging murni tanpa duri dan kulit.
+                Sangat higienis untuk asupan MPASI/Diet.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex flex-col">
+                  <span
+                    class="text-[10px] text-gray-400 font-bold uppercase tracking-wider"
+                    >Per 500gr</span
+                  >
+                  <span class="font-extrabold text-xl text-gray-900"
+                    >Rp 45.000</span
+                  >
+                </div>
+                <button
+                  onclick="pilihProduk('Lele Fillet Premium - 500gr')"
+                  class="text-blue-600 bg-blue-50 hover:bg-blue-600 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  Pesan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kategori: Obat Lele / Perawatan -->
+    <section id="produk-perawatan" class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-16"
+        >
+          <div class="max-w-2xl">
+            <span
+              class="text-brand-accent font-bold tracking-wider text-sm uppercase mb-2 block"
+              >Dukungan Peternak</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight"
+            >
+              Kesehatan & Nutrisi
+            </h2>
+          </div>
+          <p
+            class="text-gray-500 max-w-md md:text-right mt-4 md:mt-0 leading-relaxed"
+          >
+            Suplemen bioteknologi teruji untuk menjaga parameter air kolam tetap
+            optimal dan meningkatkan imun.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16"
+        >
+          <!-- Product Item 1 -->
+          <div class="group relative flex flex-col">
+            <div class="relative w-full aspect-[4/3] mb-6 z-10">
+              <!-- Dekorasi Setengah Lingkaran (Kanan Bawah) -->
+              <div
+                class="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-green-100 rounded-tl-[4rem] z-0 transition-transform duration-500 group-hover:scale-105"
+              ></div>
+
+              <!-- Ganti src="..." dengan URL/Path FOTO ASLI Anda -->
+              <img
+                src="assets/img/nutrisi/img1.png"
+                alt="Probiotik"
+                class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-gray-100 transition-transform duration-300 group-hover:-translate-y-2"
+              />
+            </div>
+            <div class="relative z-10">
+              <h4
+                class="font-bold text-gray-900 text-xl mb-2 group-hover:text-brand-accent transition-colors"
+              >
+                Probiotik Air Bioflok
+              </h4>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                Kemasan 1 Liter. Mengurai amonia beracun, menjaga kualitas air,
+                dan meningkatkan FCR (Feed Conversion Ratio).
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xl text-gray-900"
+                  >Rp 55.000</span
+                >
+                <button
+                  onclick="pilihProduk('Probiotik Air Kolam - 1L')"
+                  class="text-brand-accent bg-green-50 hover:bg-brand-accent hover:text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  Tambah
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Item 2 -->
+          <div class="group relative flex flex-col">
+            <div class="relative w-full aspect-[4/3] mb-6 z-10">
+              <!-- Dekorasi Lingkaran Kiri -->
+              <div
+                class="absolute -bottom-4 -left-4 w-3/4 h-3/4 bg-emerald-100 rounded-tr-[5rem] z-0 transition-transform duration-500 group-hover:scale-105"
+              ></div>
+
+              <!-- Ganti src="..." dengan URL/Path FOTO ASLI Anda -->
+              <img
+                src="assets/img/nutrisi/img2.png"
+                alt="Vitamin Ikan"
+                class="relative z-10 w-full h-full object-cover rounded-2xl shadow-sm border border-gray-100 transition-transform duration-300 group-hover:-translate-y-2"
+              />
+            </div>
+            <div class="relative z-10">
+              <h4
+                class="font-bold text-gray-900 text-xl mb-2 group-hover:text-emerald-500 transition-colors"
+              >
+                Multivitamin Pertumbuhan
+              </h4>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                Kemasan 500gr. Suplemen campuran pakan untuk mencegah stres,
+                meningkatkan nafsu makan, dan mempercepat masa panen.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-xl text-gray-900"
+                  >Rp 40.000</span
+                >
+                <button
+                  onclick="pilihProduk('Vitamin Pertumbuhan - 500gr')"
+                  class="text-emerald-600 bg-emerald-50 hover:bg-emerald-500 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+                >
+                  Tambah
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Forms Section (Split View) -->
+    <section class="py-20 bg-brand-dark relative overflow-hidden">
+      <!-- Decorative bg -->
+      <div
+        class="absolute top-0 right-0 w-96 h-96 bg-brand-primary rounded-full filter blur-[120px] opacity-20"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-96 h-96 bg-brand-accent rounded-full filter blur-[120px] opacity-20"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Registration Form -->
+          <div
+            id="member"
+            class="bg-white p-8 sm:p-10 rounded-3xl shadow-2xl relative"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-accent to-brand-primary rounded-t-3xl"
+            ></div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="bg-brand-light p-3 rounded-xl text-brand-primary">
+                <i class="ph-fill ph-identification-card text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Gabung Member</h3>
+            </div>
+            <p class="text-gray-500 mb-8">
+              Dapatkan diskon khusus 10% setiap pembelian dan info promo
+              eksklusif.
+            </p>
+
+            <form id="formMember" class="space-y-5">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Nama Lengkap</label
+                >
+                <input
+                  type="text"
+                  id="memberNama"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white"
+                  placeholder="Masukkan nama Anda"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Nomor WhatsApp</label
+                >
+                <input
+                  type="tel"
+                  id="memberWA"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white"
+                  placeholder="08xxxxxxxxxx"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Alamat Lengkap (Untuk Pengiriman)</label
+                >
+                <textarea
+                  id="memberAlamat"
+                  required
+                  rows="3"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white resize-none"
+                  placeholder="Masukkan alamat lengkap RT/RW, Kec, Kota"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full py-4 bg-brand-dark hover:bg-gray-800 text-white rounded-xl font-bold text-lg transition-all flex justify-center items-center gap-2 mt-4"
+              >
+                Daftar Sekarang <i class="ph-bold ph-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Order Form -->
+          <div
+            id="pemesanan"
+            class="bg-white p-8 sm:p-10 rounded-3xl shadow-2xl relative"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-primary to-green-400 rounded-t-3xl"
+            ></div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="bg-green-100 p-3 rounded-xl text-green-600">
+                <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Form Pemesanan</h3>
+            </div>
+            <p class="text-gray-500 mb-8">
+              Pesan sekarang dan kami akan memproses pesanan Anda via WhatsApp.
+            </p>
+
+            <form id="formPesan" class="space-y-5">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Nama Pemesan</label
+                >
+                <input
+                  type="text"
+                  id="pesanNama"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white"
+                  placeholder="Nama Anda"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Produk yang Dipesan</label
+                >
+                <div class="relative">
+                  <select
+                    id="pesanProduk"
+                    required
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white appearance-none"
+                  >
+                    <option value="" disabled selected>Pilih Produk...</option>
+                    <option value="Lele Konsumsi Segar - 1 Kg">
+                      Lele Konsumsi Segar (Rp 28.000/kg)
+                    </option>
+                    <option value="Lele Fillet Premium - 500gr">
+                      Lele Fillet Premium (Rp 45.000/500gr)
+                    </option>
+                    <option value="Minyak Ikan Omega-3">
+                      Minyak Ikan Omega-3 (Rp 85.000)
+                    </option>
+                    <option value="Madu Herbal Imun - 250ml">
+                      Madu Herbal Imun (Rp 60.000)
+                    </option>
+                    <option value="Paket Combo (Lele + Madu)">
+                      Paket Sehat Combo (Lele 1kg + Madu)
+                    </option>
+                  </select>
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500"
+                  >
+                    <i class="ph-bold ph-caret-down"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1"
+                    >Jumlah</label
+                  >
+                  <input
+                    type="number"
+                    id="pesanJumlah"
+                    min="1"
+                    value="1"
+                    required
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1"
+                    >Status</label
+                  >
+                  <div class="relative">
+                    <select
+                      id="pesanStatus"
+                      class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white appearance-none"
+                    >
+                      <option value="Non-Member">Non-Member</option>
+                      <option value="Member">Member (Diskon 10%)</option>
+                    </select>
+                    <div
+                      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500"
+                    >
+                      <i class="ph-bold ph-caret-down"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Alamat Pengiriman / Catatan</label
+                >
+                <textarea
+                  id="pesanCatatan"
+                  required
+                  rows="2"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-gray-50 focus:bg-white resize-none"
+                  placeholder="Tulis alamat atau catatan khusus..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full py-4 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-xl font-bold text-lg transition-all flex justify-center items-center gap-2 mt-4 shadow-lg shadow-green-200"
+              >
+                Pesan via WhatsApp <i class="ph-bold ph-paper-plane-tilt"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="bg-brand-primary p-1.5 rounded-lg text-white">
+                <i class="ph ph-fish-simple text-xl"></i>
+              </div>
+              <span class="font-bold text-xl text-white tracking-tight"
+                >Ternak<span class="text-brand-primary">Lele</span></span
+              >
+            </div>
+            <p class="mb-4 max-w-sm">
+              Penyedia ikan lele segar berkualitas dan produk kesehatan
+              terpercaya untuk keluarga Indonesia.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-colors"
+                ><i class="ph-fill ph-instagram-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-colors"
+                ><i class="ph-fill ph-facebook-logo text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-colors"
+                ><i class="ph-fill ph-tiktok-logo text-xl"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-4">Tautan</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#tentang"
+                  class="hover:text-brand-primary transition-colors"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#produk"
+                  class="hover:text-brand-primary transition-colors"
+                  >Produk</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#member"
+                  class="hover:text-brand-primary transition-colors"
+                  >Daftar Member</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-4">Kontak</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2">
+                <i class="ph-fill ph-map-pin"></i> Jl. Pertanian No. 123, Kota
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-fill ph-phone"></i> +62 812-3456-7890
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-fill ph-envelope-simple"></i> info@ternaklele.id
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+          <p>&copy; 2026 TernakLele. Hak cipta dilindungi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal Pesan Custom (Pengganti Alert) -->
+    <div
+      id="customModal"
+      class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+    >
+      <!-- Backdrop -->
+      <div
+        class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity"
+        onclick="tutupModal()"
+      ></div>
+
+      <!-- Modal Content -->
+      <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 relative z-10 transform scale-95 opacity-0 transition-all duration-300"
+        id="modalContent"
+      >
+        <div
+          class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-accent"
+        >
+          <i class="ph-fill ph-check-circle text-4xl"></i>
+        </div>
+        <h3
+          class="text-xl font-bold text-center text-gray-900 mb-2"
+          id="modalTitle"
+        >
+          Berhasil!
+        </h3>
+        <p class="text-center text-gray-600 mb-6" id="modalMessage">
+          Pesan Anda sedang diarahkan ke WhatsApp.
+        </p>
+        <button
+          onclick="tutupModal()"
+          class="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl font-medium transition-colors"
+        >
+          Tutup
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="assets/js/script.js"></script>
+</html>
